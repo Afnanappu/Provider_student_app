@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:student_app_provider/application/home/grid_and_search_simple_state_provider.dart';
+import 'package:student_app_provider/application/home/student_controller.dart';
 import 'package:student_app_provider/presentation/home/widgets/my_debounce.dart';
 
 class SearchBarForHome extends StatelessWidget {
@@ -21,7 +22,10 @@ class SearchBarForHome extends StatelessWidget {
             onChanged: (value) {
               db.debounce(
                   //todo
-                  () {});
+                  () {
+                Provider.of<StudentController>(context, listen: false)
+                    .fetchAllSearchedStudentsData(value);
+              });
             },
             // trailing: [
             //   IconButton(onPressed: () {

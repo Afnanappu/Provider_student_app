@@ -21,7 +21,8 @@ class StudentDB {
   List<StudentModel> searchForStudents(String value) {
     if (value.isEmpty) fetchAllStudent();
     return _box.values
-        .where((student) => student.name.startsWith(value))
+        .where((student) =>
+            student.name.toLowerCase().startsWith(value.toLowerCase()))
         .toList();
   }
 

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:provider/provider.dart';
 import 'package:student_app_provider/application/home/grid_and_search_simple_state_provider.dart';
@@ -29,12 +30,17 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
+        //student controller for fetching and searching.
         ChangeNotifierProvider(
           create: (context) => StudentController(),
         ),
+
+        //for changing between grid view and list view also to enable or disable search.
         ChangeNotifierProvider(
           create: (context) => IsGridOrSearchController(),
         ),
+
+        //Profile image provider that used in image picking.
         ChangeNotifierProvider(
           create: (context) => ProfileImageProvider(),
         ),
@@ -46,10 +52,14 @@ class MainApp extends StatelessWidget {
             // colorSchemeSeed: Colors.amber,
             // primaryColor: Colors.amber,
 
-            // appBarTheme: const AppBarTheme(
-            //     color: Colors.amberAccent,
-            //     systemOverlayStyle: SystemUiOverlayStyle(
-            //         statusBarColor: Color.fromARGB(63, 129, 102, 7))),
+            appBarTheme: const AppBarTheme(
+              titleTextStyle: TextStyle(
+                fontWeight: FontWeight.w500,
+                fontSize: 22,
+              ),
+              systemOverlayStyle:
+                  SystemUiOverlayStyle(statusBarColor: Colors.black12),
+            ),
             colorScheme:
                 // ColorScheme(
                 //   brightness: Brightness.light,

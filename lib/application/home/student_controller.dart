@@ -19,4 +19,12 @@ class StudentController extends ChangeNotifier {
       notifyListeners();
     }
   }
+
+  void fetchAllSearchedStudentsData(String value) {
+    final list = StudentDB().searchForStudents(value.trim());
+    if (!listEquals(list, studentList)) {
+      studentList = list;
+      notifyListeners();
+    }
+  }
 }

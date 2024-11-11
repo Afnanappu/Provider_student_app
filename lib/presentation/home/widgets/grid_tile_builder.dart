@@ -54,6 +54,7 @@ class CustomGridView extends StatelessWidget {
                 ),
                 Text(
                   studentList[index].name,
+                  overflow: TextOverflow.ellipsis,
                   style: const TextStyle(
                     fontSize: 17,
                     fontWeight: FontWeight.bold,

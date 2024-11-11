@@ -30,7 +30,10 @@ class CustomListTile extends StatelessWidget {
         ),
         borderRadius: BorderRadius.circular(15),
       ),
-      title: Text(student.name),
+      title: Text(
+        student.name,
+        overflow: TextOverflow.ellipsis,
+      ),
       subtitle: Text(student.age),
       leading: CircleAvatar(
         radius: 30,

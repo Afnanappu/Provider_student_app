@@ -34,8 +34,13 @@ class ScreenHome extends StatelessWidget {
                   ? Provider.of<IsGridOrSearchController>(context).isGrid
                       ? CustomGridView(studentList: studentList)
                       : ListTileBuilder(studentList: studentList)
-                  : const Center(
-                      child: Text('No student'),
+                  : Padding(
+                      padding: EdgeInsets.only(
+                        top: MediaQuery.sizeOf(context).height / 2 - 100,
+                      ),
+                      child: const Center(
+                        child: Text('No student'),
+                      ),
                     );
             },
           ))
